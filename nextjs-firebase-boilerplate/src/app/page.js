@@ -50,22 +50,28 @@ export default function Home() {
                 Email
               </label>
               <input
-                id="email"
-                type="email"
-                required
-                className="mt-1 w-full rounded-md bg-gray-700 bg-opacity-50 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-0"
-              />
+              onChange={( e ) => setEmail( e.target.value )}
+              required
+              type="email"
+              name="email"
+              id="email"
+              placeholder="example@mail.com"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
             </div>
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300">
                 Password
               </label>
               <input
-                id="password"
-                type="password"
-                required
-                className="mt-1 w-full rounded-md bg-gray-700 bg-opacity-50 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-0"
-              />
+              onChange={( e ) => setPassword( e.target.value )}
+              required
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
