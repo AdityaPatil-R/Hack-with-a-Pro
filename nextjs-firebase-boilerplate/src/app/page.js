@@ -10,8 +10,8 @@ export default function Home() {
       <div className="flex min-h-screen items-center justify-start pl-20 bg-gray-900 bg-opacity-20 backdrop-blur-sm">
         <div className="w-full max-w-md rounded-lg bg-gray-800 bg-opacity-50 p-8 shadow-xl">
           {/* Login Section */}
-          <h2 className="text-3xl font-bold text-white">Welcome back</h2>
-          <p className="mt-2 text-sm text-gray-300">Please Enter your Account details</p>
+          <h2 className="text-3xl font-bold text-white">Welcome back to BruinDash</h2>
+          <p className="mt-2 text-sm text-gray-300">Please enter your account details</p>
           <form className="mt-6 space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300">
