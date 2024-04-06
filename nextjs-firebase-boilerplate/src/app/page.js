@@ -1,7 +1,39 @@
+'use client'
+import signIn from "@/firebase/auth/signIn";
+
 import Image from 'next/image';
+
 import Link from 'next/link';
+import { useState} from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+
+  const [ email, setEmail ] = useState( '' );
+  const [ password, setPassword ] = useState( '' );
+  const router = useRouter();
+
+  // Handle form submission
+  const handleForm = async (event) => {
+    event.preventDefault();
+
+    // Attempt to sign in with provided email and password
+    const { result, error } = await signIn( email, password );
+
+    if ( error ) {
+      // Display and log any sign-in errors
+      console.log( error );
+      return;
+    }
+
+    // Sign in successful
+    console.log( result );
+
+    // Redirect to the admin page
+    // Typically you would want to redirect them to a protected page an add a check to see if they are admin or 
+    // create a new page for admin
+    router.push( "/admin" );
+  }
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-900">
       {/* Custom Background Image placeholder commented out for now */}
@@ -12,28 +44,34 @@ export default function Home() {
           {/* Login Section */}
           <h2 className="text-3xl font-bold text-white">Welcome back to BruinDash</h2>
           <p className="mt-2 text-sm text-gray-300">Please enter your account details</p>
-          <form className="mt-6 space-y-6">
+          <form onSubmit={handleForm} className="mt-6 space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300">
                 Email
               </label>
               <input
-                id="email"
-                type="email"
-                required
-                className="mt-1 w-full rounded-md bg-gray-700 bg-opacity-50 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-0"
-              />
+              onChange={( e ) => setEmail( e.target.value )}
+              required
+              type="email"
+              name="email"
+              id="email"
+              placeholder="example@mail.com"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
             </div>
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300">
                 Password
               </label>
               <input
-                id="password"
-                type="password"
-                required
-                className="mt-1 w-full rounded-md bg-gray-700 bg-opacity-50 border-transparent focus:border-indigo-500 focus:bg-gray-600 focus:ring-0"
-              />
+              onChange={( e ) => setPassword( e.target.value )}
+              required
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -55,12 +93,14 @@ export default function Home() {
               </div>
             </div>
             <div>
+            
               <button
                 type="submit"
                 className="w-full rounded-md bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Sign in
               </button>
+             
             </div>
           </form>
 
