@@ -37,9 +37,18 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-white dark:bg-gray-900">
       {/* Custom Background Image placeholder commented out for now */}
-
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/rendesvous.jpg"
+          alt="UCLA Rendezvous Background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          priority
+        />
+      </div>
       {/* Opaque Module for Login and Register with margin-left */}
-      <div className="flex min-h-screen items-center justify-start pl-20 bg-gray-900 bg-opacity-20 backdrop-blur-sm">
+      <div className="flex min-h-screen items-center justify-end pr-20 bg-gray-900 bg-opacity-20 backdrop-blur-sm">
         <div className="w-full max-w-md rounded-lg bg-gray-800 bg-opacity-50 p-8 shadow-xl">
           {/* Login Section */}
           <h2 className="text-3xl font-bold text-white">Welcome back to BruinDash</h2>
