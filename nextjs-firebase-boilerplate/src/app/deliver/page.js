@@ -9,7 +9,7 @@ function RandomDiningHallsPage() {
     { name: "De Neve", orders: 2, foods: ["Sushi", "Bibimbap", "Tacos", "Chicken Tenders"] },
   ];
 
-  // List of delivery destinations
+  // List of UCLA residence halls for delivery destinations
   const deliveryDestinations = [
     "Centennial Hall",
     "De Neve Plaza",
@@ -39,11 +39,16 @@ function RandomDiningHallsPage() {
 
   // Function to handle button click
   const handleButtonClick = (hallName, numOrders) => {
-    setSelectedDiningHall(hallName);
-    setSelectedOrders(new Array(numOrders).fill("").map(() => ({
-      food: diningHalls.find((hall) => hall.name === hallName).foods[Math.floor(Math.random() * 4)],
-      destination: deliveryDestinations[Math.floor(Math.random() * deliveryDestinations.length)],
-    })));
+    if (selectedDiningHall === hallName) {
+      setSelectedDiningHall(null);
+      setSelectedOrders([]);
+    } else {
+      setSelectedDiningHall(hallName);
+      setSelectedOrders(new Array(numOrders).fill("").map(() => ({
+        food: diningHalls.find((hall) => hall.name === hallName).foods[Math.floor(Math.random() * 4)],
+        destination: deliveryDestinations[Math.floor(Math.random() * deliveryDestinations.length)],
+      })));
+    }
   };
 
   // Function to handle order button click
@@ -151,9 +156,13 @@ function RandomDiningHallsPage() {
       </head>
       <body>
         <div className="container">
-          <h1 className="title">Orders</h1>
+          <h1 className="title">Orders for delivery</h1>
           {diningHalls.map((hall, index) => (
-            <button key={index} className="btn" onClick={() => handleButtonClick(hall.name, hall.orders)}>
+            <button
+              key={index}
+              className={`btn ${selectedDiningHall === hall.name ? "selected" : ""}`}
+              onClick={() => handleButtonClick(hall.name, hall.orders)}
+            >
               {hall.name} ({hall.orders})
             </button>
           ))}
@@ -162,7 +171,11 @@ function RandomDiningHallsPage() {
               <>
                 <p>Orders from {selectedDiningHall}:</p>
                 {selectedOrders.map((order, index) => (
-                  <button key={index} className="order-btn" onClick={() => handleOrderClick(order.food, order.destination)}>
+                  <button
+                    key={index}
+                    className="order-btn"
+                    onClick={() => handleOrderClick(order.food, order.destination)}
+                  >
                     {`Order: ${order.food} to ${order.destination}`}
                   </button>
                 ))}
