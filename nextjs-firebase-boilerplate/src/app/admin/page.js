@@ -61,7 +61,7 @@ function Page() {
               background-color: #4299e1;
             }
 
-            .btn-pickup {
+            .btn-deliver {
               background-color: #f6e05e;
             }
 
@@ -101,7 +101,7 @@ function Page() {
         <div className="container">
           <h1 className="text-3xl font-bold mb-6">BruinDash</h1>
           <a href="/order" className="btn btn-order">Order</a>
-          <a href="/pickup" className="btn btn-pickup">Deliver</a>
+          <a href="/deliver" className="btn btn-deliver">Deliver</a>
           <div className="bg-shape1"></div>
           <div className="bg-shape2"></div>
         </div>

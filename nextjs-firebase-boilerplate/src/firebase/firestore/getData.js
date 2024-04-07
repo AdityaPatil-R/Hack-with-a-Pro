@@ -1,4 +1,4 @@
-import firebase_app from "../config";
+import firebase_app from "../config.js";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 // Get the Firestore instance
@@ -16,6 +16,7 @@ export default async function getDocument(collection, id) {
   try {
     // Retrieve the document using the document reference
     result = await getDoc(docRef);
+    result = result.data();
   } catch (e) {
     // Catch and store any error that occurs during the operation
     error = e;
@@ -24,3 +25,5 @@ export default async function getDocument(collection, id) {
   // Return the result and error as an object
   return { result, error };
 }
+
+console.log(await getDocument('buyer_data','buyer1'));
