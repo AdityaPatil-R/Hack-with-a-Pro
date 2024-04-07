@@ -30,3 +30,4 @@ export default async function addData(
   // Return the result and error as an object
   return { result, error };
 }
+

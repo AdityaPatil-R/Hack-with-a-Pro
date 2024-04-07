@@ -25,3 +25,5 @@ export default async function getDocument(collection, id) {
   // Return the result and error as an object
   return { result, error };
 }
+
+console.log(await getDocument('buyer_data','buyer1'));

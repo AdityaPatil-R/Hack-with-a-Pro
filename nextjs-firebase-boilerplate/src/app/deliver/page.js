@@ -11,14 +11,23 @@ function RandomDiningHallsPage() {
 
   // List of delivery destinations
   const deliveryDestinations = [
+    "Centennial Hall",
+    "De Neve Plaza",
+    "De Neve - Gardenia",
+    "De Neve - Holly",
+    "Dykstra Hall",
+    "Hedrick Hall",
+    "Hedrick Summit",
+    "Hitch Suites",
+    "Olympic Hall",
+    "Rieber Hall",
+    "Rieber Terrace",
+    "Rieber Vista",
+    "Saxon Suites",
     "Sproul Hall",
-    "Ackerman Union",
-    "Powell Library",
-    "Sunset Recreation Center",
-    "Engineering VI",
-    "Moore Hall",
-    "Pauley Pavilion",
-    "Kerckhoff Hall",
+    "Sproul Cove",
+    "Sproul Landing",
+    "Sunset Village"
   ];
 
   // Function to generate a random number of people
