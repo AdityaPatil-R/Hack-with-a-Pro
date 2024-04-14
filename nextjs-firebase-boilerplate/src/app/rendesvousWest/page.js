@@ -57,16 +57,31 @@ export default function RendevousWest() {
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif',width: '100%', 
-    height: '100vh', 
-    backgroundImage: 'url(/images/rendesvous.jpg)', 
-    backgroundPosition: 'center', 
-    backgroundSize: 'cover', 
-    backgroundRepeat: 'no-repeat' , padding: '20px' }}>
-      <h1>Rendevous West Options</h1>
+    <div style={{ fontFamily: 'Arial, sans-serif', 
+   fontFamily: 'Arial, sans-serif',
+      width: '100%', 
+      height: '100vh', 
+      backgroundImage: 'url(/images/rendesvous.jpg)', 
+      backgroundPosition: 'center', 
+      backgroundSize: 'cover', 
+      backgroundRepeat: 'no-repeat',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px', }}>
+      
       <form onSubmit={handleSubmit}>
         {/* Building Select */}
-        <div>
+        <div style={{
+        maxWidth: '600px',
+        width: '100%',
+        backgroundColor: 'rgba(112, 128, 144, 0.7)',
+        padding: '20px',
+        borderRadius: '8px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        textAlign: 'center', // Center text
+      }}>
+        <h1>Rendevous West Options</h1>
           <label htmlFor="Building">Building:</label>
           <select value={building} onChange={(e) => setBuilding(e.target.value)}>
           <option value="">--Please choose an option--</option>
@@ -139,7 +154,7 @@ export default function RendevousWest() {
         {/* //name, loc, restaurant_name, food_item */}
 
     
-        {/* <button onSubmit={addBuyer(username, building, "Rendesvous West",  style+" "+chips)}type="submit">Done</button> */}
+        <button >Purchase</button>
       </form>
       {message && <p style={{ color: 'red' }}>{message}</p>}
     </div>
